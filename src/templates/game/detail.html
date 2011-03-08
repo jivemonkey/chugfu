@@ -1,0 +1,59 @@
+{% extends "common/main_base.html" %}
+{% block title%}{{ game.title }}{% endblock %}
+{% block content %}
+<b>Title:</b>{{ game.title }}<br>
+<b>Summary:</b>{{ game.summary }}<br>
+<h2>Rules:</h2>
+<ul id="rules" class="rules">
+{% for rule in rules %}
+	<li class="rule" id="{{ rule.id }}">
+		<b class="delete" onclick="delete_rule({{rule.id}})">Delete</b>
+		<div class="text">{{ rule.description }} ({{ rule.points }})</div>
+	</li>
+{% endfor %}
+</ul>
+<div class="inlineadd">
+	<form>
+	<lable>New Rule:</lable>
+	<input type="text" name="description" />
+	<select name="points">
+		<option>Drink</option>
+		<option>2 Drinks</option>
+		<option>3 Drinks</option>
+		<option>Finish Glass</option>
+		<option>Full glass</option>
+	</select>
+	<b class="add" id="add_rule">Add</b>
+	</form>
+</div>
+
+<a href="/game/edit/{{game.id}}">Edit</a>
+<a href="/game/delete/{{game.id}}">Delete</a>
+
+<script type="text/javascript">
+$("#add_rule").click(function()
+{
+	$.post("/rule/add/", 
+		{ 
+			game_id: "{{ game.id }}", 
+			description: $("input[name=description]").val(), 
+			points: $("select[name=points]").val()
+		},
+		function(data) {
+			$("#rules").append('<li class="rule" id="'+data.id+'"><b class="delete" onclick="delete_rule('+data.id+')">Delete</b><div class="text">'+data.desc+' ('+data.points+')</text></li>');
+			$("input[name=description]").val(""), 
+			$("select[name=points]").val("Drink")
+		},
+		"json");
+});
+function delete_rule(id)
+{
+	$.get("/rule/delete/"+id,
+		function(data) {
+			if(data == "success")
+				$("#"+id).remove();
+		}
+	);
+}
+</script>
+{% endblock %}

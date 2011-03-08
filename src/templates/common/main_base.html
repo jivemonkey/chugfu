@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>{% block title %}Joy Of Foo{% endblock %}</title>
+	<style type="text/css">
+	body {
+		margin: 0px;
+		background-color: #F3F5E9;
+		color: #4D4D4D;
+		font:normal 13px/18px helvetica,arial,hirakakupro-w3,osaka,"ms pgothic",sans-serif;
+	    color:#333;
+	}
+
+	input,textarea,select,button{
+	    font:normal 13px/18px helvetica,arial,hirakakupro-w3,osaka,"ms pgothic",sans-serif;
+	    color:#333;
+	    
+	}
+	
+	h2 {
+		padding-left: 5px;
+	}
+	
+	table.list {
+		width: 600px;
+		margin-left: 10px;
+		margin-bottom: 20px;
+		border: 1px solid #000000;
+		background-color: #E6E3E3
+	}
+	
+	table.list td {
+		padding: 10px;
+		text-align: center;
+		background-color: #F3F5E9;
+	}
+	
+	table.list td:hover { 
+		background: white 
+	}
+	
+	table.list td.title {
+		width: 250px;
+		text-align:left;
+	}
+	
+	.review {
+		color: black
+	}
+	
+	.toolbar {
+		display: inline;
+		margin: 0px;
+		padding: 6px; 
+	}
+	
+	#headertitle {
+		color: #4D4D4D;
+		margin-top: 8px;
+		margin-bottom: 8px;
+		margin-left: 10px;
+	}
+	
+	#headertitle a:link {
+		color: black; 
+		text-decoration: none
+	}
+
+	#headertitle a:visited { 
+		color: black;
+	}
+	
+	#navbar { 
+		border-top: 2px solid black;
+		border-bottom: 2px solid black; 
+		padding: 6px;
+	}
+	
+	.toolbar li {
+		display: inline;
+		margin:  0px;
+		padding: 6px;
+	}
+	
+	.toolbar li:hover {
+		font-weight: bold;
+		background-color: white; 
+	}
+
+	.toolbar li a:link {
+		color: black; 
+		text-decoration: none
+	}
+
+	.toolbar li a:visited { 
+		color: black;
+	}
+
+	#login {
+		margin-right: 20px;
+		float: right;
+	}
+	
+	.loginForm {
+		color: black
+	}
+	
+	.delete {
+		cursor: hand;
+		cursor: pointer;
+		float: right;
+		color: #FFF;
+		margin-bottom: 2px;
+		background-color: #036;
+		padding: 2px 5px 2px 5px;
+		text-align: center;
+		text-decoration: none;
+	}
+	
+	.add {
+		cursor: hand;
+		cursor: pointer;
+		color: #FFF;
+		background-color: #036;
+		padding: 2px 5px 2px 5px;
+		text-align: center;
+		text-decoration: none;
+	}
+	
+	ul.rules {
+		list-style-type: square;
+		margin-left: 15px;
+		padding-left: 10px;
+		padding-bottom: 15px;
+		width: 300px;
+	}
+	
+	li.rule {
+		padding-left: 0;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		margin-left: 0;
+		width: 350px;
+		border-bottom: 1px solid #cccccc;
+	}
+	
+	li.rule div.text {
+		display: inline;
+	}
+	
+	lable {
+		padding-left: 10px;
+		font-weight: bold;
+	}
+	
+	.inlineadd {
+		padding-top: 5px;
+		border-top: 2px solid black
+	}
+	
+	</style>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+		var pageTracker = _gat._getTracker("UA-1223637-2");
+		pageTracker._trackPageview();
+	} catch(err) {}
+	</script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="/static/js/jquery.form.js"></script>
+</head>
+<body>
+	<h1 id="headertitle">
+	<a href="/">Joy Of Foo</a>
+	</h1>
+    <div id="navbar">
+        {% block sidebar %}
+        <ul class="toolbar">
+            <li><a href="/movie/list/">Movies</a></li>
+        </ul>
+        {% endblock %}
+    	<div id="login">
+     		{% if user %}
+     		{{ user }} <a href="/user/logout/?next=/">Logout</a>
+     		{% else %}
+     		<a href="/user/login">Login</a> | 
+     		<a href="/user/register/">Register</a>
+    	 	{% endif %}
+		</div>
+	</div>
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

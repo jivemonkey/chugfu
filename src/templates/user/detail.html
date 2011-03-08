@@ -1,0 +1,25 @@
+{% extends "common/main_base.html" %}
+
+{% block content %}
+<style type="text/css">
+table.list
+{
+	width: 200px;
+	margin-left: 20px;
+	margin-bottom: 20px;
+	border: medium solid #000000;
+}
+table.list td
+{
+	padding: 10px;
+	text-align: center;
+	background: #eeeeee;
+}
+</style>
+<b>Users:</b><a href="/user/create/{{ company.key }}">Add User</a><br>
+<table class="list">
+{% for user in users %}
+<tr><td>{{ company.name }}</td><td><a href="company/delete/{{ company.key }}">Delete</a></td></tr>
+{% endfor %}
+</table>
+{% endblock %}

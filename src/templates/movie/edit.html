@@ -1,0 +1,11 @@
+{% extends "common/main_base.html" %}
+
+{% block content %}
+
+<form id="myForm" method="POST" action="/movie/{{action}}/{{id}}">
+<table>
+{{ form }}
+<tr><td><input type="submit"></td><td><a onclick="changeContent('/movie/list/')" href="/movie/list/">Cancel</a></td></tr>
+</table>
+</form>
+{% endblock %}

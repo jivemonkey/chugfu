@@ -1,0 +1,12 @@
+{% extends "common/main_base.html" %}
+{% block title%}Movies{% endblock %}
+{% block content %}
+<table class="list">
+{% for movie in movies %}
+	<tr>
+		<td class="title"><a href="/movie/detail/{{movie.id}}">{{ movie.title }}</a></td>
+	</tr>
+{% endfor %}
+</table>
+<a onclick="changeContent('/movie/create')" href="/movie/create">Add Movie</a>
+{% endblock %}

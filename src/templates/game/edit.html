@@ -1,0 +1,11 @@
+{% extends "common/main_base.html" %}
+
+{% block content %}
+
+<form id="myForm" method="POST" action="/game/{{action}}/{{ form.initial.id }}">
+<table>
+{{ form }}
+<tr><td><input type="submit"></td><td><a href="/movie/detail/{{ movie_id }}">Cancel</a></td></tr>
+</table>
+</form>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "common/main_base.html" %}
+{% block title%}Review for {{ movie.title }}{% endblock %}
+{% block content %}
+<form id="reviewForm" method="POST" action="/review/{{action}}/{{id}}">
+<input type="hidden" name="movie_id" value="{{movie.id}}">
+<table>
+{{ form }}
+<tr>
+<td><input type="submit"></td>
+<td><a href="/review/detail/{{ form.instance.id }}">Cancel</a></td></tr>
+</table>
+</form>
+{% endblock %}

@@ -1,0 +1,15 @@
+<script type="text/javascript">
+<!--
+$("#newsForm").ajaxForm({
+						success:function(j) {closePopup();$("#content").html(j);}
+  					  });
+//-->
+</script>
+<form id="newsForm" method="POST" action="/news/{{action}}/{{id}}">
+<table>
+{{ form }}
+<tr>
+<td><input type="submit"></td>
+<td><a onclick="closePopup()" href="#">Cancel</a></td></tr>
+</table>
+</form>

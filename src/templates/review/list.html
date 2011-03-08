@@ -1,0 +1,13 @@
+<table class="list">
+{% for review in reviews %}
+	<tr>
+		<td class="title"><a href="/review/detail/{{review.id}}">{{ review.title }}</a> 
+		{% if review.user%}
+		By {{review.user.username}}</td>
+		{% else %}
+		By Anonymous Coward
+		{% endif %}
+	</tr>
+{% endfor %}
+</table>
+<a id="addReview" href="/review/create/{{movie.id}}">Create Review</a><br>

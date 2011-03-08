@@ -1,0 +1,16 @@
+{% extends "common/main_base.html" %}
+
+{% block content %}
+{% if form.errors or error %}
+{{ form.errors }}
+{% endif %}
+
+<form id="createUserForm" method="POST" action="/user/{{action}}/{{id}}">
+<table>
+{{ form }}
+<tr>
+<td><input type="submit"></td>
+<td><a onclick="changeContent('/')" href="#">Cancel</a></td></tr>
+</table>
+</form>
+{% endblock %}

@@ -1,0 +1,8 @@
+<h1 id="newtitle">News</h1>
+{% for event in news %}
+<div class="newsevent" id="{{event.id}}">
+<h2 class="newstitle">{{event.title}}</h2>
+<p class="newstime">{{event.createDate|date:"d M Y"}}</p>
+<p class="newsbody">{{event.summary}}</p>
+</div>
+{% endfor %}

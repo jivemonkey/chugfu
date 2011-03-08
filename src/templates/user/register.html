@@ -1,0 +1,16 @@
+{% extends "common/main_base.html" %}
+
+{% block content %}
+<h1>Register</h1>
+{% if feedback %}
+<div class="feedback">
+    {{ feedback }}
+</div>
+{% endif %}
+<form action="{{ action_url }}" method="post">
+<table class="reg_form">
+    {{ form }}
+</table>
+<input type="submit" />
+</form>
+{% endblock %}

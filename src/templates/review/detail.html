@@ -1,0 +1,24 @@
+{% extends "common/main_base.html" %}
+{% block title%}Review for {{ movie.title }}{% endblock %}
+{% block content %}
+<script type="text/javascript">
+<!--
+$("#deletereview").click(function() {
+								$.get('/review/delete/{{ review.id }}/', 
+														function(result) {
+																closePopup();
+																$("#content").html(result);
+														});
+							});
+//-->
+</script>
+<div class="review">
+<b>Title:</b> {{review.title}}<br><br>
+<p class="reviewsummary">{{ review.summary }}</p>
+<br>
+<br>
+<a href="/review/edit/{{review.id}}">Edit</a>
+<a href="/review/delete/{{ review.id }}">Delete</a>
+<a href="/movie/detail/{{ review.movie.id }}">Back</a>
+</div>
+{% endblock %}
