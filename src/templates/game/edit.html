@@ -3,9 +3,10 @@
 {% block content %}
 
 <form id="myForm" method="POST" action="/game/{{action}}/{{ form.initial.id }}">
+<input type="hidden" name="movie_id" value="{{movie.id}}" />
 <table>
 {{ form }}
-<tr><td><input type="submit"></td><td><a href="/movie/detail/{{ movie_id }}">Cancel</a></td></tr>
+<tr><td><input type="submit"></td><td><a href="/movie/detail/{{ movie.id }}">Cancel</a></td></tr>
 </table>
 </form>
 {% endblock %}
