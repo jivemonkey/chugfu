@@ -20,6 +20,7 @@ urlpatterns = patterns('JOF.controllers',
     # Movies Actions
     (r'^movie/list/$','movie.list'),
     (r'^movie/edit/(?P<movie_id>\w+)/$','movie.edit'),
+    (r'^movie/import/$','movie.import_movie'),
     (r'^movie/add/$','movie.add'),
     (r'^movie/update/(?P<movie_id>\w+)$','movie.update'),
     (r'^movie/detail/(?P<movie_id>\w+)/$','movie.detail'),

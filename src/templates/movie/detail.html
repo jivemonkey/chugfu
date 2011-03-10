@@ -1,12 +1,12 @@
 {% extends "common/main_base.html" %}
 {% block title%}{{ movie.title }}{% endblock %}
 {% block content %}
-<b>Title:</b>{{ movie.title }}<br>
-{{ movie.subTitle }}<br>
-{{ movie.releaseDate }}<br>
-{{ movie.director }}<br>
-{{ movie.imdbLink }}<br>
-{{ movie.officalSummary }}<br>
+<img src="{{movie.poster}}" />
+<b>Title:</b> {{ movie.title }}<br>
+<b>Plot:</b> {{ movie.plot }}<br>
+<b>Released:</b> {{ movie.releaseDate }}<br>
+<b>Director:</b> {{ movie.director }}<br>
+<b>IMDB:</b> <a href="{{ movie.imdbLink }}">{{ movie.imdbLink }}</a><br>
 <br>
 <h2>Games:</h2>
 {% include "game/list.html" %}

@@ -1,11 +1,51 @@
 {% extends "common/main_base.html" %}
 
 {% block content %}
-
+<style>
+<!--
+.bigbutton {
+	cursor: hand;
+	cursor: pointer;
+	color: #FFF;
+	font-size: 2em;
+	margin-bottom: 2px;
+	background-color: #036;
+	padding: 20px 50px 20px 50px;
+	text-align: center;
+	text-decoration: none;
+	margin: 5px;
+	float: left;
+}
+-->
+</style>
+<div id="buttons">
+<div class="bigbutton" id="import_button">Import</div>
+<div class="bigbutton" id="create_button">Create</div>
+</div>
+<div id="create_form" style="display:none">
 <form id="myForm" method="POST" action="/movie/{{action}}/{{id}}">
 <table>
 {{ form }}
-<tr><td><input type="submit"></td><td><a onclick="changeContent('/movie/list/')" href="/movie/list/">Cancel</a></td></tr>
+<tr><td><input type="submit"></td><td><a href="/movie/list/">Cancel</a></td></tr>
 </table>
 </form>
+</div>
+<div id="import_form" style="display:none">
+	<form method="POST" action="/movie/import/">
+	<input type="text" name="imdb_url" />
+	<input type="submit" />
+	</form>
+</div>
+<script type="text/javascript">
+$("#import_button").click(
+	function(){
+		$("#buttons").hide();
+		$("#import_form").toggle();
+	});
+$("#create_button").click(
+	function(){
+		$("#buttons").hide();
+		$("#create_form").toggle();
+	});
+</script>
 {% endblock %}

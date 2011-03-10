@@ -1,4 +1,9 @@
 # Create your views here.
+import urllib2
+from django.utils import simplejson
+import re
+import datetime
+
 from django.shortcuts import render_to_response
 from django.forms import ModelForm
 
@@ -9,6 +14,27 @@ from JOF.models import Movie
 class MovieForm(ModelForm):
     class Meta:
         model = Movie
+
+def import_movie(request):
+    imdb_url = request.POST['imdb_url']
+        
+    movie_id = re.search('http://www.imdb.com/title/(.*)/?', imdb_url).group(1)
+
+    full_url = 'http://www.imdbapi.com/?i=%s' % movie_id   
+    result = urllib2.urlopen(full_url)
+
+    movie_obj =  simplejson.load(result)
+    movie = Movie()
+    movie.releaseDate = datetime.datetime.strptime(movie_obj['Released'], "%d %b %Y").strftime('%Y-%m-%d')
+    movie.director = movie_obj['Director']
+    movie.title = movie_obj['Title']
+    movie.plot = movie_obj['Plot']
+    movie.poster = movie_obj['Poster']
+    movie.rated = movie_obj['Rated']
+    movie.imdbLink = imdb_url
+    movie.save()
+
+    return detail(request, movie.id)
 
 def add(request):
     form = MovieForm(request.POST)

@@ -5,11 +5,12 @@ from django.db import models
 # Movie info
 class Movie(models.Model):
     title = models.CharField(max_length=300)
-    subTitle = models.CharField(max_length=300, blank=True)
-    releaseDate = models.DateTimeField(null=True, blank=True)
+    releaseDate = models.DateField(null=True, blank=True)
     director = models.CharField(max_length=300, blank=True)
     imdbLink = models.CharField(max_length=300, blank=True)
-    officalSummary = models.TextField(blank=True)
+    poster = models.TextField(max_length=300, blank=True)
+    plot = models.TextField(blank=True)
+    rated = models.TextField(max_length=20, blank=True)
 
 # Review info   
 class Review(models.Model):
