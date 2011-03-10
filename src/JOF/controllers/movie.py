@@ -25,7 +25,7 @@ def import_movie(request):
 
     movie_obj =  simplejson.load(result)
     movie = Movie()
-    movie.releaseDate = datetime.datetime.strptime(movie_obj['Released'], "%d %b %Y").strftime('%Y-%m-%d')
+    #movie.releaseDate = datetime.datetime.strptime(movie_obj['Released'], "%d %b %Y").strftime('%Y-%m-%d')
     movie.director = movie_obj['Director']
     movie.title = movie_obj['Title']
     movie.plot = movie_obj['Plot']
