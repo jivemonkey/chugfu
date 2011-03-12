@@ -1,7 +1,7 @@
 {% extends "common/main_base.html" %}
 {% block title%}{{ movie.title }}{% endblock %}
 {% block content %}
-<img src="{{movie.poster}}" />
+<img src="/image/get/{{movie.poster|urlencode:""}}/" />
 <b>Title:</b> {{ movie.title }}<br>
 <b>Plot:</b> {{ movie.plot }}<br>
 <b>Released:</b> {{ movie.releaseDate }}<br>

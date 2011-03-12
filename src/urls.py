@@ -15,6 +15,7 @@
 from django.conf.urls.defaults import *
 
 urlpatterns = patterns('JOF.controllers',
+    (r'^image/get/(?P<image_url>.+)/$','image.get'),
     # Main page
     (r'^$','views.index'),
     # Movies Actions
