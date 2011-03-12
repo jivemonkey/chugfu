@@ -19,8 +19,8 @@
 -->
 </style>
 <div id="buttons">
-<div class="bigbutton" id="import_button">Import</div>
-<div class="bigbutton" id="create_button">Create</div>
+<div class="bigbutton" id="import_button">Import From IMDB</div>
+<div class="bigbutton" id="create_button">Create From Scratch</div>
 </div>
 <div id="create_form" style="display:none">
 <form id="myForm" method="POST" action="/movie/{{action}}/{{id}}">
@@ -32,6 +32,7 @@
 </div>
 <div id="import_form" style="display:none">
 	<form method="POST" action="/movie/import/">
+	<div class="label"><b>IMDB URL:</b></div>
 	<input type="text" name="imdb_url" />
 	<input type="submit" />
 	</form>
