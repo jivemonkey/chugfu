@@ -21,21 +21,22 @@
 	</ul>
 </div>
 <div class="inlineadd">
-	<form>
+	<form onsubmit="add_rule();">
 	<lable>New Rule:</lable>
-	<input type="text" name="description" />
-	<select name="points">
+		<select name="points">
 		<option>Drink</option>
 		<option>2 Drinks</option>
 		<option>3 Drinks</option>
 		<option>Finish Glass</option>
 		<option>Drink Full glass</option>
-	</select>
+	</select> when...
+	<input type="text" name="description" />
 	<b class="button" id="add_rule">Add</b>
 	</form>
 </div>
 <script type="text/javascript">
-$("#add_rule").click(function()
+$("#add_rule").click(add_rule);
+function add_rule()
 {
 	$.post("/rule/add/", 
 		{ 
@@ -49,7 +50,8 @@ $("#add_rule").click(function()
 			$("select[name=points]").val("Drink")
 		},
 		"json");
-});
+		return false;
+}
 function delete_rule(id)
 {
 	$.get("/rule/delete/"+id,
