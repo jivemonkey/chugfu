@@ -10,7 +10,10 @@
 		min-height: 98%;
 		margin: 0;
 		padding: 10px 10px 0 10px;
-		background-color: #F3F5E9; 
+		background: #6987B2; /* old browsers */
+		background: -moz-linear-gradient(top, #6987B2 0%, #22233A 94%); /* firefox */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#6987B2), color-stop(94%,#22233A)); /* webkit */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6987B2', endColorstr='#22233A',GradientType=0 ); /* ie */
 		font:normal 13px/18px helvetica,arial,sans-serif; 
 		color:#333;
 	}
@@ -18,17 +21,19 @@
 
 	a:visited { color: #4D4D4D; test-decoration: none; }
 
-	h1 { padding-top: 5px; }
+	h1 { padding-top: 15px; padding-left: 15px; }
 	
 	h2 { padding-left: 5px; }
+	
+	h3 { padding-left: 5px;}
 	
 	input,textarea,select,button{ font:normal 13px/18px helvetica,arial,sans-serif; color:#333; }
 	
 	div#wrapper { margin: 0; background-color: white; height: 100%;}
 	
-	p { padding-left: 4px; }
+	p { padding-left: 5px; }
 	
-	table.list { width: 600px; margin-left: 10px; margin-bottom: 20px; border: 1px solid #000000; background-color: #E6E3E3 }
+	table.list { width: 600px; margin-left: 5px; margin-top: 5px; margin-bottom: 20px; border: 1px solid #000000; background-color: #E6E3E3 }
 	
 	table.list td { padding: 10px; text-align: center; background-color: #F3F5E9; }
 	
@@ -40,13 +45,11 @@
 	
 	.toolbar { display: inline; margin: 0px; padding: 6px; }
 	
-	#headertitle { color: #4D4D4D; margin-top: 0px; margin-bottom: 8px; margin-left: 10px; }
-	
 	#navbar { border-top: 2px solid black; border-bottom: 2px solid black; padding: 6px; }
 	
 	.toolbar li { display: inline; margin:  0px; padding: 6px; }
 	
-	.toolbar li:hover { color: black; background-color: white; }
+	.toolbar li:hover { border: thin solid black; }
 
 	.toolbar li a:link { color: black; text-decoration: none; }
 
@@ -115,7 +118,7 @@
 	        {% block sidebar %}
 	        <ul class="toolbar">
 	            <li><a href="/movie/list/">Movies</a></li>
-	            <li><a href="/tv/list/">TV</a></li>
+	            <li><a href="/television/list/">Television</a></li>
 	        </ul>
 	        {% endblock %}
 	    	<div id="login">

@@ -27,6 +27,8 @@ urlpatterns = patterns('JOF.controllers',
     (r'^movie/detail/(?P<movie_id>\w+)/$','movie.detail'),
     (r'^movie/create/$','movie.create'),
     (r'^movie/delete/(?P<movie_id>\w+)/$','movie.delete'),
+    # TV Actions
+    (r'^television/list/$','movie.list'),
     # Review Actions
     (r'^review/list/$','review.list'),
     (r'^review/edit/(?P<review_id>\w+)/$','review.edit'),
