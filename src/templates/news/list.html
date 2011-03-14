@@ -1,7 +1,7 @@
-<h1 id="newtitle">News</h1>
+<h2 id="newtitle">News</h2>
 {% for event in news %}
 <div class="newsevent" id="{{event.id}}">
-<h2 class="newstitle">{{event.title}}</h2>
+<h3 class="newstitle">{{event.title}}</h3>
 <p class="newstime">{{event.createDate|date:"d M Y"}}</p>
 <p class="newsbody">{{event.summary}}</p>
 </div>
