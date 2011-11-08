@@ -18,7 +18,7 @@ class MovieForm(ModelForm):
 def import_movie(request):
     imdb_url = request.POST['imdb_url']
         
-    movie_id = re.search('http://www.imdb.com/title/(.*)/?', imdb_url).group(1)
+    movie_id = re.search('http://www.imdb.com/title/(.*)/.?', imdb_url).group(1)
 
     full_url = 'http://www.imdbapi.com/?i=%s' % movie_id   
     result = urllib2.urlopen(full_url)
